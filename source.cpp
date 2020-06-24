@@ -16,8 +16,9 @@ using namespace std;
 //--------------------
 //作者:kamazyou
 //--------------------
-int flag;
 int select;
+int sentaku;
+int flag;
 
 //--------------------
 //作者:kamazyou
@@ -364,19 +365,18 @@ int gensyou(int g) {
 //作者:kamazyou
 //--------------------
 void menu() {
-  flag = 0;
-  cout << "********************\n";
-  cout << "メニュー\n";
-  cout << "--------------------\n";
-  cout << "武将選択（数字）\n";
-  cout << "--------------------\n";
-  cout << "1." + kyarakuta(1) + "\n";
-  cout << "2." + kyarakuta(2) + "\n";
-  cout << "3." + kyarakuta(3) + "\n";
-  cout << "4." + kyarakuta(4) + "\n";
-  cout << "5." + kyarakuta(5) + "\n";
-  cout << "6." + kyarakuta(6) + "\n";
-  cout << "********************\n";
+  cout << "********************" << endl;
+  cout << "メニュー" << endl;
+  cout << "--------------------" << endl;
+  cout << "武将選択（数字）" << endl;
+  cout << "--------------------" << endl;
+  cout << "1." << kyarakuta(1) << endl;
+  cout << "2." << kyarakuta(2) << endl;
+  cout << "3." << kyarakuta(3) << endl;
+  cout << "4." << kyarakuta(4) << endl;
+  cout << "5." << kyarakuta(5) << endl;
+  cout << "6." << kyarakuta(6) << endl;
+  cout << "********************" << endl;
   cout << "->";
   cin >> select;
 }
@@ -384,84 +384,61 @@ void menu() {
 //--------------------
 //作者:kamazyou
 //--------------------
-void seigyo(int s) {
-  if (s == 1) {
-    hp(1);
-    atk(1);
-    def(1);
-    teshita(1);
-    ougi(1);
-    tp(1);
-    gensyou(1);
-  }
-  if (s == 2) {
-    hp(2);
-    atk(2);
-    def(2);
-    teshita(2);
-    ougi(2);
-    tp(2);
-    gensyou(2);
-  }
-  if (s == 3) {
-    hp(3);
-    atk(3);
-    def(3);
-    teshita(3);
-    ougi(3);
-    tp(3);
-    gensyou(3);
-  }
-  if (s == 4) {
-    hp(4);
-    atk(4);
-    def(4);
-    teshita(4);
-    ougi(4);
-    tp(4);
-    gensyou(4);
-  }
-  if (s == 5) {
-    hp(5);
-    atk(5);
-    def(5);
-    teshita(5);
-    ougi(5);
-    tp(5);
-    gensyou(5);
-  }
-  if (s == 6) {
-    hp(6);
-    atk(6);
-    def(6);
-    teshita(6);
-    ougi(6);
-    tp(6);
-    gensyou(6);
-  }
-}
-
-//--------------------
-//作者:kamazyou
-//--------------------
 void taisen() {
   if (select == 1) {
-    seigyo(1);
-    seigyo(2);
-    cout << "********************\n";
-    cout << kyarakuta(1) + "VS" + kyarakuta(2) + "\n";
-    cout << "--------------------\n";
-    cout << kyarakuta(2) + "\n";
-    cout << teshita(2) + "\n";
-    cout << "--------------------\n";
-    cout << kyarakuta(1) + "\n";
-    cout << teshita(1) + "\n";
-    cout << tp(1) + "\n";
-    cout << "********************\n";
-    cout << "1.攻撃 2.特技\n";
-  }
-  if (select == 2) {
-    cout << kyarakuta(2) + "VS" + kyarakuta(1) + "\n";
+    flag = 0;
+    int mh;
+    int mt;
+    int th;
+    int tt;
+    int me;
+    mh = 0;
+    mt = 0;
+    th = 0;
+    tt = 0;
+    me = 0;
+    while (flag == 0) {
+      cout << "********************" << endl;
+      cout << kyarakuta(1) << "VS" << kyarakuta(2) << endl;
+      cout << "--------------------" << endl;
+      cout << kyarakuta(2) << endl;
+      cout << "HP:" << hp(2) - th << endl;
+      cout << "兵:" << teshita(2) - tt << endl;
+      cout << "--------------------" << endl;
+      cout << kyarakuta(1) << endl;
+      cout << "HP:" << hp(1) - mh << endl;
+      cout << "兵:" << teshita(1) - mt << endl;
+      cout << "TP:" << tp(1) - me << endl;
+      cout << "********************" << endl;
+      cout << "1.攻撃 2.特技" << endl;
+      cin >> sentaku;
+      if (sentaku == 1) {
+        if (teshita(2) > tt) {
+          tt += atk(1);
+        }
+        if (teshita(2) <= tt) {
+          th += atk(1);
+          if (hp(2) <= th) {
+            cout << "勝利" << endl;
+            flag = 1;
+          }
+        }
+      }
+      if (sentaku == 2) {
+        if (teshita(2) > tt) {
+          tt += ougi(1);
+          me += gensyou(1);
+        }
+        if (teshita(2) <= tt) {
+          th += ougi(1);
+          me += gensyou(1);
+          if (hp(2) <= th) {
+            cout << "勝利" << endl;
+            flag = 1;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -470,4 +447,5 @@ void taisen() {
 //--------------------
 int main() {
   menu();
+  taisen();
 }
