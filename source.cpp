@@ -17,6 +17,7 @@ using namespace std;
 //作者:kamazyou
 //--------------------
 int flag;
+int select;
 
 //--------------------
 //作者:kamazyou
@@ -364,7 +365,6 @@ int gensyou(int g) {
 //--------------------
 void menu() {
   flag = 0;
-  int select;
   cout << "********************\n";
   cout << "メニュー\n";
   cout << "--------------------\n";
@@ -379,6 +379,90 @@ void menu() {
   cout << "********************\n";
   cout << "->";
   cin >> select;
+}
+
+//--------------------
+//作者:kamazyou
+//--------------------
+void seigyo(int s) {
+  if (s == 1) {
+    hp(1);
+    atk(1);
+    def(1);
+    teshita(1);
+    ougi(1);
+    tp(1);
+    gensyou(1);
+  }
+  if (s == 2) {
+    hp(2);
+    atk(2);
+    def(2);
+    teshita(2);
+    ougi(2);
+    tp(2);
+    gensyou(2);
+  }
+  if (s == 3) {
+    hp(3);
+    atk(3);
+    def(3);
+    teshita(3);
+    ougi(3);
+    tp(3);
+    gensyou(3);
+  }
+  if (s == 4) {
+    hp(4);
+    atk(4);
+    def(4);
+    teshita(4);
+    ougi(4);
+    tp(4);
+    gensyou(4);
+  }
+  if (s == 5) {
+    hp(5);
+    atk(5);
+    def(5);
+    teshita(5);
+    ougi(5);
+    tp(5);
+    gensyou(5);
+  }
+  if (s == 6) {
+    hp(6);
+    atk(6);
+    def(6);
+    teshita(6);
+    ougi(6);
+    tp(6);
+    gensyou(6);
+  }
+}
+
+//--------------------
+//作者:kamazyou
+//--------------------
+void taisen() {
+  if (select == 1) {
+    seigyo(1);
+    seigyo(2);
+    cout << "********************\n";
+    cout << kyarakuta(1) + "VS" + kyarakuta(2) + "\n";
+    cout << "--------------------\n";
+    cout << kyarakuta(2) + "\n";
+    cout << teshita(2) + "\n";
+    cout << "--------------------\n";
+    cout << kyarakuta(1) + "\n";
+    cout << teshita(1) + "\n";
+    cout << tp(1) + "\n";
+    cout << "********************\n";
+    cout << "1.攻撃 2.特技\n";
+  }
+  if (select == 2) {
+    cout << kyarakuta(2) + "VS" + kyarakuta(1) + "\n";
+  }
 }
 
 //--------------------
