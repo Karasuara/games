@@ -7,6 +7,7 @@
 //作者:kamazyou
 //--------------------
 #include<iostream>
+#include<random>
 
 //--------------------
 //作者:kamazyou
@@ -113,6 +114,15 @@ struct syouhi {
   int akechi;
 };
 
+struct subayasa {
+  int oda;
+  int toyotomi;
+  int tokugawa;
+  int imagawa;
+  int takeda;
+  int akechi;
+};
+
 //--------------------
 //作者:kamazyou
 //--------------------
@@ -193,15 +203,15 @@ int atk(int a) {
     return kgk.tokugawa;
   }
   if (a == 4) {
-    kgk.imagawa = 600;
+    kgk.imagawa = 400;
     return kgk.imagawa;
   }
   if (a == 5) {
-    kgk.takeda = 800;
+    kgk.takeda = 600;
     return kgk.takeda;
   }
   if (a == 6) {
-    kgk.akechi = 600;
+    kgk.akechi = 900;
     return kgk.akechi;
   }
 }
@@ -224,16 +234,47 @@ int def(int d) {
     return bug.tokugawa;
   }
   if (d == 4) {
-    bug.imagawa = 300;
+    bug.imagawa = 600;
     return bug.imagawa;
   }
   if (d == 5) {
-    bug.takeda = 400;
+    bug.takeda = 300;
     return bug.takeda;
   }
   if (d == 6) {
-    bug.akechi = 300;
+    bug.akechi = 450;
     return bug.akechi;
+  }
+}
+
+//--------------------
+//作者:kamazyou
+//--------------------
+int hayasa(int h) {
+  subayasa sbys;
+  if (h == 1) {
+    sbys.oda = 200;
+    return sbys.oda;
+  }
+  if (h == 2) {
+    sbys.toyotomi = 375;
+    return sbys.toyotomi;
+  }
+  if (h == 3) {
+    sbys.tokugawa = 175;
+    return sbys.tokugawa;
+  }
+  if (h == 4) {
+    sbys.imagawa = 300;
+    return sbys.imagawa;
+  }
+  if (h == 5) {
+    sbys.takeda = 150;
+    return sbys.takeda;
+  }
+  if (h == 6) {
+    sbys.akechi = 225;
+    return sbys.akechi;
   }
 }
 
@@ -255,15 +296,15 @@ int teshita(int t) {
     return hrk.tokugawa;
   }
   if (t == 4) {
-    hrk.imagawa = 900;
+    hrk.imagawa = 1000;
     return hrk.imagawa;
   }
   if (t == 5) {
-    hrk.takeda = 1200;
+    hrk.takeda = 900;
     return hrk.takeda;
   }
   if (t == 6) {
-    hrk.akechi = 900;
+    hrk.akechi = 1350;
     return hrk.akechi;
   }
 }
@@ -274,27 +315,27 @@ int teshita(int t) {
 int ougi(int o) {
   tokugi tkg;
   if (o == 1) {
-    tkg.oda = 1600;
+    tkg.oda = 2000;
     return tkg.oda;
   }
   if (o == 2) {
-    tkg.toyotomi = 1000;
+    tkg.toyotomi = 1750;
     return tkg.toyotomi;
   }
   if (o == 3) {
-    tkg.tokugawa = 1400;
+    tkg.tokugawa = 1750;
     return tkg.tokugawa;
   }
   if (o == 4) {
-    tkg.imagawa = 1200;
+    tkg.imagawa = 1400;
     return tkg.imagawa;
   }
   if (o == 5) {
-    tkg.takeda = 1600;
+    tkg.takeda = 1500;
     return tkg.takeda;
   }
   if (o == 6) {
-    tkg.akechi = 1200;
+    tkg.akechi = 2250;
     return tkg.akechi;
   }
 }
@@ -305,27 +346,27 @@ int ougi(int o) {
 int tp(int t) {
   point pit;
   if (t == 1) {
-    pit.oda = 100;
+    pit.oda = 300;
     return pit.oda;
   }
   if (t == 2) {
-    pit.toyotomi = 100;
+    pit.toyotomi = 300;
     return pit.toyotomi;
   }
   if (t == 3) {
-    pit.tokugawa = 100;
+    pit.tokugawa = 300;
     return pit.tokugawa;
   }
   if (t == 4) {
-    pit.imagawa = 100;
+    pit.imagawa = 300;
     return pit.imagawa;
   }
   if (t == 5) {
-    pit.takeda = 100;
+    pit.takeda = 300;
     return pit.takeda;
   }
   if (t == 6) {
-    pit.akechi = 100;
+    pit.akechi = 300;
     return pit.akechi;
   }
 }
@@ -336,27 +377,27 @@ int tp(int t) {
 int gensyou(int g) {
   syouhi suh;
   if (g == 1) {
-    suh.oda = 40;
+    suh.oda = 50;
     return suh.oda;
   }
   if (g == 2) {
-    suh.toyotomi = 25;
+    suh.toyotomi = 57;
     return suh.toyotomi;
   }
   if (g == 3) {
-    suh.tokugawa = 35;
+    suh.tokugawa = 57;
     return suh.tokugawa;
   }
   if (g == 4) {
-    suh.imagawa = 30;
+    suh.imagawa = 71;
     return suh.imagawa;
   }
   if (g == 5) {
-    suh.takeda = 40;
+    suh.takeda = 66;
     return suh.takeda;
   }
   if (g == 6) {
-    suh.akechi = 30;
+    suh.akechi = 44;
     return suh.akechi;
   }
 }
@@ -439,6 +480,15 @@ void taisen() {
         }
       }
     }
+  }
+}
+
+//--------------------
+//作者:kamazyou
+//--------------------
+void tekidousa() {
+  if (select == 1) {
+
   }
 }
 
