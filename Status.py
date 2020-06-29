@@ -1,11 +1,16 @@
 class clsStatus:
     #イニシャライズ
     def __init__(self):
-        self.Name = ""
-        self.Hp = 0
-        self.Ts = 0
-        self.Tp = 0 
-
+        self.Name = "" #名前
+        self.Hp = 0    #ヒットポイント
+        self.Atk = 0   #攻撃力
+        self.Def = 0   #防御力
+        self.Spe = 0   #スピード　ターンに関係ある？
+        self.Force = 0 #兵力
+        self.Skill = 0 #スキル　何に使うのかなぞ　説明求む
+        self.Point = 0 #ポイント　何に使うのかなぞ　説明求む
+        self.Cost = 0  #コスト
+        self.All = 0   #総合力
     #一括ですべてのステータスに値を入れる
     def setDatas(self, pName, pHp, pAtk, Def, pSpe, pSkl, pPit, pTs, pTp):
         self.Name = pName
