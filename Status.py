@@ -91,3 +91,4 @@ class clsStatus:
         print("体力\t" + str(self.Hp))
         print("兵力\t" + str(self.Force))
         print("総合\t" + str(self.All))
+        

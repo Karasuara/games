@@ -29,6 +29,7 @@ def setCharToItem(pChar, pItem):
 #キャラクター選択用の表示
 def dispChars():
     print("********************")
+    print("メニュー")
     print("--------------------")
     print("武将選択（数字）")
     print("--------------------")
@@ -38,8 +39,28 @@ def dispChars():
     print("********************")
 
 #対戦形式で表示
-def dispCharVsChar():
-
+def dispCharVsChar(pPlayer, pNpc):
+    print("********************")
+    print(pPlayer.get_name() + "VS" + pNpc.get_name())
+    print("--------------------")
+    print(pNpc.get_name())
+    print("体力")
+    print(pNpc.get_hp())
+    print("兵力")
+    print(pNpc.get_force())
+    print("TP")
+    print(pNpc.get_point())
+    print("--------------------")
+    print(pPlayer.get_name())
+    print("体力")
+    print(pPlayer.get_hp())
+    print("兵力")
+    print(pPlayer.get_force())
+    print("TP")
+    print(pPlayer.get_point())
+    print("********************")
+    print("1.攻撃 2.特技")
+    return
 
 #キャラクター選択
 def selectChar():
@@ -55,24 +76,96 @@ def selectChar():
                 if aItem.get("Id") == int(aInp):
                     #プレイヤーに選択されたキャラの情報を入れる
                     setCharToItem(gPlayer, aItem)
+                    gEndChar.append(aItem.get("Id"))
                     return
 
+#次の対戦相手を取得する
+def initNpc(pNpc):
+    aRndFlag = False
+    while aRndFlag != True:
+        aRnd = random.randint(1,len(NPC_CHARS))
+        aFlag = False
+        for aItem in gEndChar:
+            if aRnd == aItem:
+                aFlag = True
+                break
 
+        if aFlag != True:
+            for aItem in NPC_CHARS:
+                if aRnd == aItem.get("Id"):
+                    setCharToItem(pNpc, aItem)
+                    return
+
+#バトル画面
 def battleStart():
+    #NPC生成
+    aNpc = Stas.clsStatus()
+
+    #NPCにランダムな値を入れる
+    initNpc(aNpc)
+
     aEndFlag = False
-    while len(gEndChar) != len(NPC_CHARS) and aEndFlag == False:
-        random.randint(1,)
+    while gPlayer.get_hp() >= 0 and aEndFlag == False:
+        dispCharVsChar(gPlayer, aNpc)
+        input("->")
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #ここだけ
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        aEndFlag = True
+
+    for aItem in NPC_CHARS:
+        if aNpc.get_name() == aItem.get("Name"):
+            gEndChar.append(aItem.get("Id"))
+    
+    return not aEndFlag
 
 #メイン関数
 def Main():
+    #ゲームだからきれいなほうがいい
+    dispClear()
+
     #プレイヤーのキャラクターを選択させる
     selectChar()
 
+    #戦闘入る前に画面をクリアする
+    dispClear()
+
     #戦闘開始
-    if battleStart() == True:
-        print("勝ち")
-    else:
-        print("負け")
+    while len(gEndChar) != len(NPC_CHARS) - 1:
+        if battleStart() != True:
+            print("敗北")
+            return
+
+        #間をあける
+        for i in range(3):
+            print("\r\n")
+
+    print("勝利")
 
 #エントリーポイント
 if __name__ == "__main__":
