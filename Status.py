@@ -11,105 +11,82 @@ class clsStatus:
         self.Point = 0 #ポイント　何に使うのかなぞ　説明求む
         self.Cost = 0  #コスト
         self.All = 0   #総合力
+
     #一括ですべてのステータスに値を入れる
-    def setDatas(self, pName, pHp, pAtk, Def, pSpe, pSkl, pPit, pTs, pTp):
+    def setDatas(self, pName, pHp, pAtk, pDef, pSpe, pForce, pSkill, pPoint, pCost, pAll):
         self.Name = pName
         self.Hp = pHp
         self.Atk = pAtk
         self.Def = pDef
         self.Spe = pSpe
-        self.Ts = pTs
-        self.Skl = pSkl
-        self.Pit = pPit
-        self.Tp = pTp
+        self.Force = pForce
+        self.Skill = pSkill
+        self.Point = pPoint
+        self.Cost = pCost
+        self.All = pAll
 
-
-    #    ███▄    █  ▄▄▄       ███▄ ▄███▓▓█████ 
-    #    ██ ▀█   █ ▒████▄    ▓██▒▀█▀ ██▒▓█   ▀ 
-    #   ▓██  ▀█ ██▒▒██  ▀█▄  ▓██    ▓██░▒███   
-    #   ▓██▒  ▐▌██▒░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄ 
-    #   ▒██░   ▓██░ ▓█   ▓██▒▒██▒   ░██▒░▒████▒
-    #   ░ ▒░   ▒ ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░
-    #   ░ ░░   ░ ▒░  ▒   ▒▒ ░░  ░      ░ ░ ░  ░
-    #      ░   ░ ░   ░   ▒   ░      ░      ░   
-    #            ░       ░  ░       ░      ░  ░
-    #                                          
-
-    def getName(self):
+    #name
+    def get_name(self):
         return self.Name
-
-    def setName(self, pName):
+    def set_name(self,pName):
         self.Name = pName
-
-
-    #    ██░ ██  ██▓▄▄▄█████▓    ██▓███   ▒█████   ██▓ ███▄    █ ▄▄▄█████▓  ██████ 
-    #   ▓██░ ██▒▓██▒▓  ██▒ ▓▒   ▓██░  ██▒▒██▒  ██▒▓██▒ ██ ▀█   █ ▓  ██▒ ▓▒▒██    ▒ 
-    #   ▒██▀▀██░▒██▒▒ ▓██░ ▒░   ▓██░ ██▓▒▒██░  ██▒▒██▒▓██  ▀█ ██▒▒ ▓██░ ▒░░ ▓██▄   
-    #   ░▓█ ░██ ░██░░ ▓██▓ ░    ▒██▄█▓▒ ▒▒██   ██░░██░▓██▒  ▐▌██▒░ ▓██▓ ░   ▒   ██▒
-    #   ░▓█▒░██▓░██░  ▒██▒ ░    ▒██▒ ░  ░░ ████▓▒░░██░▒██░   ▓██░  ▒██▒ ░ ▒██████▒▒
-    #    ▒ ░░▒░▒░▓    ▒ ░░      ▒▓▒░ ░  ░░ ▒░▒░▒░ ░▓  ░ ▒░   ▒ ▒   ▒ ░░   ▒ ▒▓▒ ▒ ░
-    #    ▒ ░▒░ ░ ▒ ░    ░       ░▒ ░       ░ ▒ ▒░  ▒ ░░ ░░   ░ ▒░    ░    ░ ░▒  ░ ░
-    #    ░  ░░ ░ ▒ ░  ░         ░░       ░ ░ ░ ▒   ▒ ░   ░   ░ ░   ░      ░  ░  ░  
-    #    ░  ░  ░ ░                           ░ ░   ░           ░                ░  
-    #                                                                              
-
-    def getHp(self):
+        
+    #hp
+    def get_hp(self):
         return self.Hp
-
-    def setHp(self, pHp):
+    def set_hp(self,pHp):
         self.Hp = pHp
+    #atk
+    def get_atk(self):
+        return self.Atk
+    def set_atk(self,pAtk):
+        self.Atk = pAtk
+        
+    #def
+    def get_def(self):
+        return self.Def
+    def set_def(self,pDef):
+        self.Def = pDef
+        
+    #spe
+    def get_spe(self):
+        return self.Spe
+    def set_spe(self,pSpe):
+        self.Spe = pSpe
 
+    #force
+    def get_force(self):
+        return self.Force
+    def set_force(self,pForce):
+        self.Force = pForce
+        
+    #skill
+    def get_skill(self):
+        return self.Skill
+    def set_skill(self,pSkill):
+        self.Skill = pSkill
 
-    #   ▄▄▄█████▓ ██▀███   ▒█████   ▒█████   ██▓███       ██████ ▄▄▄█████▓ ██▀███  ▓█████  ███▄    █   ▄████ ▄▄▄█████▓ ██░ ██ 
-    #   ▓  ██▒ ▓▒▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓██░  ██▒   ▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀  ██ ▀█   █  ██▒ ▀█▒▓  ██▒ ▓▒▓██░ ██▒
-    #   ▒ ▓██░ ▒░▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▓██░ ██▓▒   ░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▒███   ▓██  ▀█ ██▒▒██░▄▄▄░▒ ▓██░ ▒░▒██▀▀██░
-    #   ░ ▓██▓ ░ ▒██▀▀█▄  ▒██   ██░▒██   ██░▒██▄█▓▒ ▒     ▒   ██▒░ ▓██▓ ░ ▒██▀▀█▄  ▒▓█  ▄ ▓██▒  ▐▌██▒░▓█  ██▓░ ▓██▓ ░ ░▓█ ░██ 
-    #     ▒██▒ ░ ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░▒██▒ ░  ░   ▒██████▒▒  ▒██▒ ░ ░██▓ ▒██▒░▒████▒▒██░   ▓██░░▒▓███▀▒  ▒██▒ ░ ░▓█▒░██▓
-    #     ▒ ░░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░ ▒▓▒░ ░  ░   ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒▓ ░▒▓░░░ ▒░ ░░ ▒░   ▒ ▒  ░▒   ▒   ▒ ░░    ▒ ░░▒░▒
-    #       ░      ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░ ░▒ ░        ░ ░▒  ░ ░    ░      ░▒ ░ ▒░ ░ ░  ░░ ░░   ░ ▒░  ░   ░     ░     ▒ ░▒░ ░
-    #     ░        ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░░          ░  ░  ░    ░        ░░   ░    ░      ░   ░ ░ ░ ░   ░   ░       ░  ░░ ░
-    #               ░         ░ ░      ░ ░                    ░              ░        ░  ░         ░       ░           ░  ░  ░
-    #                                                                                                                         
+    #point
+    def get_point(self):
+        return self.Point
+    def set_point(self,pPoint):
+        self.Point = pPoint
+        
+    #cost
+    def get_cost(self):
+        return self.Cost
+    def set_cost(self,pCost):
+        self.Cost = pCost
+        
+    #all
+    def get_all(self):
+        return self.All
+    def set_all(self,pAll):
+        self.All = pAll
 
-    def getTs(self):
-        return self.Ts
-
-    def setTs(self, pTs):
-        self.Ts = pTs
-
-
-    #   ▄▄▄█████▓  ██████ 
-    #   ▓  ██▒ ▓▒▒██    ▒ 
-    #   ▒ ▓██░ ▒░░ ▓██▄   
-    #   ░ ▓██▓ ░   ▒   ██▒
-    #     ▒██▒ ░ ▒██████▒▒
-    #     ▒ ░░   ▒ ▒▓▒ ▒ ░
-    #       ░    ░ ░▒  ░ ░
-    #     ░      ░  ░  ░  
-    #                  ░  
-    #                     
-
-    def getTp(self):
-        return self.Tp
-
-    def setTp(self, pTp):
-        self.Tp = pTp
-
-
-    #   ▓█████▄  ██▓  ██████  ██▓███  ▓█████▄  ▄▄▄       ██▀███   ▄▄▄        ██████ 
-    #   ▒██▀ ██▌▓██▒▒██    ▒ ▓██░  ██▒▒██▀ ██▌▒████▄    ▓██ ▒ ██▒▒████▄    ▒██    ▒ 
-    #   ░██   █▌▒██▒░ ▓██▄   ▓██░ ██▓▒░██   █▌▒██  ▀█▄  ▓██ ░▄█ ▒▒██  ▀█▄  ░ ▓██▄   
-    #   ░▓█▄   ▌░██░  ▒   ██▒▒██▄█▓▒ ▒░▓█▄   ▌░██▄▄▄▄██ ▒██▀▀█▄  ░██▄▄▄▄██   ▒   ██▒
-    #   ░▒████▓ ░██░▒██████▒▒▒██▒ ░  ░░▒████▓  ▓█   ▓██▒░██▓ ▒██▒ ▓█   ▓██▒▒██████▒▒
-    #    ▒▒▓  ▒ ░▓  ▒ ▒▓▒ ▒ ░▒▓▒░ ░  ░ ▒▒▓  ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░
-    #    ░ ▒  ▒  ▒ ░░ ░▒  ░ ░░▒ ░      ░ ▒  ▒   ▒   ▒▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░░ ░▒  ░ ░
-    #    ░ ░  ░  ▒ ░░  ░  ░  ░░        ░ ░  ░   ░   ▒     ░░   ░   ░   ▒   ░  ░  ░  
-    #      ░     ░        ░              ░          ░  ░   ░           ░  ░      ░  
-    #    ░                             ░                                            
 
     def dispDatas(self):
         print("名前\t" + self.Name)
         print("体力\t" + str(self.Hp))
-        print("兵力\t" + str(self.Ts))
-        print("TP\t" + str(self.Tp))
-
+        print("兵力\t" + str(self.Force))
+        print("総合\t" + str(self.All))
