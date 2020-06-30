@@ -76,20 +76,25 @@ def selectChar():
                 if aItem.get("Id") == int(aInp):
                     #プレイヤーに選択されたキャラの情報を入れる
                     setCharToItem(gPlayer, aItem)
+                    #自分自身と戦わないようにする
                     gEndChar.append(aItem.get("Id"))
                     return
 
 #次の対戦相手を取得する
 def initNpc(pNpc):
-    aRndFlag = False
-    while aRndFlag != True:
+    #ランダムに生成できるまで繰り返す
+    while True:
+        #乱数の生成
         aRnd = random.randint(1,len(NPC_CHARS))
+        
+        #一度戦った敵じゃないかの判定
         aFlag = False
         for aItem in gEndChar:
             if aRnd == aItem:
                 aFlag = True
                 break
 
+        #乱数の値からキャラを持ってきてセットする
         if aFlag != True:
             for aItem in NPC_CHARS:
                 if aRnd == aItem.get("Id"):
@@ -104,10 +109,21 @@ def battleStart():
     #NPCにランダムな値を入れる
     initNpc(aNpc)
 
+    #メインのバトル処理
     aEndFlag = False
     while gPlayer.get_hp() >= 0 and aEndFlag == False:
+        #キャラのステータスを出力
         dispCharVsChar(gPlayer, aNpc)
-        input("->")
+
+        #攻撃方法の選択
+        aInp = input("->")
+        if aInp.isnumeric() == True:
+            if int(aInp) == 1:
+
+
+            elif int(aInp) == 2:
+
+
         #
         #
         #
@@ -136,13 +152,17 @@ def battleStart():
         #
         #
         #
-        aEndFlag = True
+        
+        #敵に勝ったか
+        if aNpc.get_hp() >= 0:
+            aEndFlag = True
 
+    #一度戦った相手のIdを戦った相手配列に格納
     for aItem in NPC_CHARS:
         if aNpc.get_name() == aItem.get("Name"):
             gEndChar.append(aItem.get("Id"))
     
-    return not aEndFlag
+    return aEndFlag
 
 #メイン関数
 def Main():
